@@ -4,6 +4,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private float tileSize = 1f;
+    [SerializeField] private GameObject tilePrefab;
     private Dictionary<Vector2Int, GameObject> placedTiles = new();
     private Vector2Int hoveredTile;
 
@@ -14,9 +15,31 @@ public class GridManager : MonoBehaviour
         hoveredTile = WorldToGrid(mouseToWorld);
 
         if (Input.GetMouseButtonDown(0))
+            PlaceTile(hoveredTile);
+
+        if (Input.GetMouseButtonDown(1))
+            RemoveTile(hoveredTile);
+    }
+
+    private void PlaceTile(Vector2Int tile)
+    {
+        if (placedTiles.ContainsKey(tile))
         {
-            Debug.Log("Clicked " + hoveredTile);
+            Debug.Log("Tile already exists here!");
+            return;
         }
+
+        Vector3 worldPos = GridToWorld(tile);
+        GameObject newTile = Instantiate(tilePrefab, worldPos, Quaternion.identity, transform);
+        placedTiles[tile] = newTile;
+    }
+
+    private void RemoveTile(Vector2Int tile)
+    {
+        if(!placedTiles.ContainsKey(tile)) return;
+
+        Destroy(placedTiles[tile]);
+        placedTiles.Remove(tile);
     }
 
     public Vector2Int WorldToGrid(Vector3 worldPos)
