@@ -5,6 +5,7 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField] private float tileSize = 1f;
     [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private LevelEditorManager levelEditorManager;
     private Dictionary<Vector2Int, GameObject> placedTiles = new();
     private Vector2Int hoveredTile;
 
@@ -30,7 +31,8 @@ public class GridManager : MonoBehaviour
         }
 
         Vector3 worldPos = GridToWorld(tile);
-        GameObject newTile = Instantiate(tilePrefab, worldPos, Quaternion.identity, transform);
+        GameObject prefabToPlace = levelEditorManager.GetSelectedTile();
+        GameObject newTile = Instantiate(prefabToPlace, worldPos, Quaternion.identity, transform);
         placedTiles[tile] = newTile;
     }
 
