@@ -379,7 +379,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -438,6 +438,15 @@ MonoBehaviour:
     variants:
     - {fileID: 7546620395385608248, guid: e829371e08eea9e4ab649e5ce6238203, type: 3}
     - {fileID: 5635852841478657246, guid: 8ef6cdd8ada1fc84998584f8f10dd362, type: 3}
+  - categoryName: Interactable
+    variants:
+    - {fileID: 5360794990636975886, guid: 3afc7cd2b721aca459efc338370f8fff, type: 3}
+    - {fileID: 6590775188411377247, guid: bc4342d0b5c1ba545942a710ee8358b4, type: 3}
+  - categoryName: Pickup
+    variants:
+    - {fileID: 2642703693557721174, guid: bc44c905b3c8bef4c83da2427b65521a, type: 3}
+  categoryBar: {fileID: 1910835290}
+  categoryButtonPrefab: {fileID: 5073030078558345365, guid: 1eed430583e4688449c1bf340729e05e, type: 3}
 --- !u!4 &1602804375
 Transform:
   m_ObjectHideFlags: 0
@@ -542,6 +551,7 @@ GameObject:
   - component: {fileID: 1910835290}
   - component: {fileID: 1910835292}
   - component: {fileID: 1910835291}
+  - component: {fileID: 1910835293}
   m_Layer: 5
   m_Name: CategoryBar
   m_TagString: Untagged
@@ -563,10 +573,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1019939432}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910835291
 MonoBehaviour:
@@ -606,6 +616,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910835289}
   m_CullTransparentMesh: 1
+--- !u!114 &1910835293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910835289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
